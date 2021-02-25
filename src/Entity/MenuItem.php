@@ -35,7 +35,7 @@ class MenuItem
     private $prijs;
 
     /**
-     * @ORM\OneToMany(targetEntity=Bestelling::class, mappedBy="menuItem_id")
+     * @ORM\OneToMany(targetEntity=Bestelling::class, mappedBy="menuItem_id", orphanRemoval=true)
      */
     private $bestellings;
 

@@ -26,6 +26,18 @@ class ReserveringController extends AbstractController
     }
 
     /**
+     * @Route("/{id}", name="bestellingen_reservering", methods={"GET"})
+     */
+    public function showbestellingen(ReserveringRepository $reserveringRepository): Response
+    {
+        return $this->render('reservering/index.html.twig', [
+            'reserverings' => $reserveringRepository->findBy(
+                []
+            ),
+        ]);
+    }
+
+    /**
      * @Route("/new", name="reservering_new", methods={"GET","POST"})
      */
     public function new(Request $request): Response
