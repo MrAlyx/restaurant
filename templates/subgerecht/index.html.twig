@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Subgerecht index{% endblock %}
+
+{% block body %}
+    <h1>Subgerecht index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Naam</th>
+                <th>Gerecht</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for subgerecht in subgerechts %}
+            <tr>
+                <td>{{ subgerecht.id }}</td>
+                <td>{{ subgerecht.naam }}</td>
+                <td>{{ subgerecht.gerechtId.naam }}</td>
+                <td>
+                    <a href="{{ path('subgerecht_show', {'id': subgerecht.id}) }}">show</a>
+                    <a href="{{ path('subgerecht_edit', {'id': subgerecht.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('subgerecht_new') }}">Create new</a>
+{% endblock %}

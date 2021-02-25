@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Klant{% endblock %}
+
+{% block body %}
+    <h1>Klant</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ klant.id }}</td>
+            </tr>
+            <tr>
+                <th>Klantnaam</th>
+                <td>{{ klant.klantnaam }}</td>
+            </tr>
+            <tr>
+                <th>Telefoonnummer</th>
+                <td>{{ klant.telefoonnummer }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('klant_index') }}">back to list</a>
+
+    <a href="{{ path('klant_edit', {'id': klant.id}) }}">edit</a>
+
+    {{ include('klant/_delete_form.html.twig') }}
+{% endblock %}

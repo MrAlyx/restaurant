@@ -1,0 +1,34 @@
+<h1>Bestelling</h1>
+
+    <table class="table">
+        <tr>
+            <th>Id</th>
+            <td>{{ bestelling.id }}</td>
+        </tr>
+        <tr>
+            <th>Datum</th>
+            <td>{{ bestelling.reserveringId.DatumTijd }}</td>
+        </tr>
+        <tr>
+            <th>Id</th>
+            <th>Aantal</th>
+            <th>ReserveringId</th>
+            <th>MenuItem</th>
+            <th>Staat_klaar</th>
+            <th>actions</th>
+        </tr>
+        <tbody>
+        {% for bestelling in bestellings %}
+            <tr>
+                <td>{{ bestelling.id }}</td>
+                <td>{{ bestelling.aantal }}</td>
+                <td>{{ bestelling.reserveringId }}</td>
+                <td>{{ bestelling.menuItemId }}</td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>

@@ -6,14 +6,69 @@
         {# Run `composer require symfony/webpack-encore-bundle`
            and uncomment the following Encore helpers to start using Symfony UX #}
         {% block stylesheets %}
-            {#{{ encore_entry_link_tags('app') }}#}
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
         {% endblock %}
 
         {% block javascripts %}
             {#{{ encore_entry_script_tags('app') }}#}
         {% endblock %}
+        <style>
+            .wrapper {
+                margin-right: auto; /* 1 */
+                margin-left:  auto; /* 1 */
+
+                max-width: 960px; /* 2 */
+
+                padding-right: 10px; /* 3 */
+                padding-left:  10px; /* 3 */
+            }
+        </style>
     </head>
     <body>
-        {% block body %}{% endblock %}
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <a class="navbar-brand" href="#">Navbar w/ text</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarText">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Bestellingen
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="{{ path('bestelling_index') }}">Alle bestellingen</a>
+                                <a class="dropdown-item" href="{{ path('bar_index') }}">Bar</a>
+                                <a class="dropdown-item" href="{{ path('keuken_index') }}">Keuken</a>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ path('bon_index') }}">Bon</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ path('gerecht_index') }}">Gerechten</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ path('klant_index') }}">Klant</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ path('menu_item_index') }}">MenuItem</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ path('reservering_index') }}">Reservering</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ path('subgerecht_index') }}">Subgerecht</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ path('tafel_index') }}">Tafel</a>
+                        </li>
+                    </ul>
+                </div>
+        </nav>
+
+        <div class="wrapper">
+             {% block body %}{% endblock %}
+        </div>
     </body>
 </html>

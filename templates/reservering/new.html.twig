@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Reservering{% endblock %}
+
+{% block body %}
+    <h1>Create new Reservering</h1>
+
+    {{ include('reservering/_form.html.twig') }}
+
+    <a href="{{ path('reservering_index') }}">back to list</a>
+{% endblock %}

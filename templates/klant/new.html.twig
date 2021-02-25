@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Klant{% endblock %}
+
+{% block body %}
+    <h1>Create new Klant</h1>
+
+    {{ include('klant/_form.html.twig') }}
+
+    <a href="{{ path('klant_index') }}">back to list</a>
+{% endblock %}

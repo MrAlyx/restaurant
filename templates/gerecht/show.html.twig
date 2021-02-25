@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Gerecht{% endblock %}
+
+{% block body %}
+    <h1>Gerecht</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ gerecht.id }}</td>
+            </tr>
+            <tr>
+                <th>Naam</th>
+                <td>{{ gerecht.naam }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('gerecht_index') }}">back to list</a>
+
+    <a href="{{ path('gerecht_edit', {'id': gerecht.id}) }}">edit</a>
+
+    {{ include('gerecht/_delete_form.html.twig') }}
+{% endblock %}

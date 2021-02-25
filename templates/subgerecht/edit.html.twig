@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Subgerecht{% endblock %}
+
+{% block body %}
+    <h1>Edit Subgerecht</h1>
+
+    {{ include('subgerecht/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('subgerecht_index') }}">back to list</a>
+
+    {{ include('subgerecht/_delete_form.html.twig') }}
+{% endblock %}

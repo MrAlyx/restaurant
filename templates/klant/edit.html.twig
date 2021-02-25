@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Klant{% endblock %}
+
+{% block body %}
+    <h1>Edit Klant</h1>
+
+    {{ include('klant/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('klant_index') }}">back to list</a>
+
+    {{ include('klant/_delete_form.html.twig') }}
+{% endblock %}

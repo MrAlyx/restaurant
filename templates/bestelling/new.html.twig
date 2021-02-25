@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Bestelling{% endblock %}
+
+{% block body %}
+    <h1>Create new Bestelling</h1>
+
+    {{ include('bestelling/_form.html.twig') }}
+
+    <a href="{{ path('bestelling_index') }}">back to list</a>
+{% endblock %}

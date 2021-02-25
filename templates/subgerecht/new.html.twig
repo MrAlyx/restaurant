@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Subgerecht{% endblock %}
+
+{% block body %}
+    <h1>Create new Subgerecht</h1>
+
+    {{ include('subgerecht/_form.html.twig') }}
+
+    <a href="{{ path('subgerecht_index') }}">back to list</a>
+{% endblock %}

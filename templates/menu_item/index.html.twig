@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}MenuItem index{% endblock %}
+
+{% block body %}
+    <h1>MenuItem index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>MenuItem</th>
+                <th>Prijs</th>
+                <th>Subgerecht</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for menu_item in menu_items %}
+            <tr>
+                <td>{{ menu_item.id }}</td>
+                <td>{{ menu_item.menuItem }}</td>
+                <td>{{ menu_item.prijs }}</td>
+                <td>{{ menu_item.subgerechtId }}</td>
+                <td>
+                    <a href="{{ path('menu_item_show', {'id': menu_item.id}) }}">show</a>
+                    <a href="{{ path('menu_item_edit', {'id': menu_item.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('menu_item_new') }}">Create new</a>
+{% endblock %}

@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Alle bestellingen{% endblock %}
+
+{% block body %}
+
+    <br><h2>Alle bestellingen</h2>
+
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>Aantal</th>
+            <th>Reservering Id</th>
+            <th>MenuItem</th>
+            <th>Tafel</th>
+            <th>Gerecht</th>
+            <th>Staat_klaar</th>
+            <th>actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for bestelling in bestellings %}
+            <tr>
+                <td>{{ bestelling.id }}</td>
+                <td>{{ bestelling.aantal }}</td>
+                <td>{{ bestelling.reserveringId }}</td>
+                <td>{{ bestelling.menuItemId }}</td>
+                <td>{{ bestelling.reserveringId.tafelId }}</td>
+                <td>{{ bestelling.menuItemId.subgerechtId.gerechtId }}</td>
+                <td>{{ bestelling.staatKlaar ? 'Ja' : 'Nee' }}</td>
+                <td>
+{#                    <a href="{{ path('bestelling_show', {'id': bestelling.id}) }}">show</a>#}
+                    <a href="{{ path('bestelling_edit', {'id': bestelling.id}) }}">edit</a>
+                    <a href="{{ path('bestelling_showpdf', {'id': bestelling.id}) }}">pdf</a>
+                    {{ include('bestelling/_delete_form.html.twig') }}
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('bestelling_new') }}">Create new</a>
+{% endblock %}
