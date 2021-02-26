@@ -3,18 +3,22 @@
 {% block title %}Bon{% endblock %}
 
 {% block body %}
-    <h1>Bon</h1>
+    <h1>Bon {{ bon.id }}</h1>
+    <h2>datum : {{ bon.datumTijd ? bon.datumTijd|date('Y-m-d') : '' }}</h2>
 
-    <table class="table">
+    <table class="table table-striped pull-right">
+        <thead>
+            <tr>
+            <td>Aantal</td>
+            <td>Product</td>
+            <td>Prijs</td>
+            <td>Totaal</td>
+            </tr>
+        </thead>
         <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ bon.id }}</td>
-            </tr>
-            <tr>
-                <th>Datum_tijd</th>
-                <td>{{ bon.datumTijd ? bon.datumTijd|date('Y-m-d H:i:s') : '' }}</td>
-            </tr>
+        <tr>
+{#            <td>{{ reservering.bestelling.aantal }}</td>#}
+        </tr>
         </tbody>
     </table>
 
