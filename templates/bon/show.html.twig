@@ -3,8 +3,10 @@
 {% block title %}Bon{% endblock %}
 
 {% block body %}
-    <h1>Bon {{ bon.id }}</h1>
-    <h2>datum : {{ bon.datumTijd ? bon.datumTijd|date('Y-m-d') : '' }}</h2>
+    <br>
+    <h5>Bon {{ bon.id }}</h5>
+    <p>Datum : {{ bon.datumTijd ? bon.datumTijd|date('Y-m-d') : '' }}</p><br>
+    <p>Tafelnummer {{ bon.reserveringId.tafelId }}</p>
 
     <table class="table table-striped pull-right">
         <thead>
@@ -16,9 +18,14 @@
             </tr>
         </thead>
         <tbody>
+        {% for bestelling in bon.reserveringId.bestellings %}
         <tr>
-{#            <td>{{ reservering.bestelling.aantal }}</td>#}
+            <td>{{ bestelling.id }}</td>
+            <td>{{ bestelling.menuItemId}}</td>
+            <td>{{ bestelling.menuItemId.prijs }}</td>
+            <td>{{ bestelling.reserveringId }}</td>
         </tr>
+        {% endfor %}
         </tbody>
     </table>
 

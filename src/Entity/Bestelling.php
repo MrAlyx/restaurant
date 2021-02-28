@@ -44,6 +44,11 @@ class Bestelling
      */
     private $gerecht;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=Bon::class, inversedBy="bestellings")
+     */
+    private $bon_id;
+
 
 
     public function getId(): ?int
@@ -107,6 +112,18 @@ class Bestelling
     public function setGerecht(?Gerecht $gerecht): self
     {
         $this->gerecht = $gerecht;
+
+        return $this;
+    }
+
+    public function getBonId(): ?Bon
+    {
+        return $this->bon_id;
+    }
+
+    public function setBonId(?Bon $bon_id): self
+    {
+        $this->bon_id = $bon_id;
 
         return $this;
     }
